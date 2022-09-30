@@ -1,10 +1,15 @@
+body{
+  background-image: url(https://as1.ftcdn.net/v2/jpg/03/83/96/36/1000_F_383963677_qgpulgMAhewYHgWMfh91K2k2ukk5HMMx.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
 .signin, #listado {
     width: 100%;
     max-width: 500px;
-    padding: 15px;
     margin: auto;
     background-color: beige;
-    border: 1px black solid; 
   }
 
 .invalid{
@@ -12,18 +17,23 @@
 }
 
 #filtro-rango-pag {
-  float: left;
   padding: 15px;
-  background-color: rgb(220, 226, 245);
-  border: 1px black solid; 
-  margin-top: 40px;
+  background-color: beige;
 }
 
 
 #info-user {
-  float: right;
   padding: 15px;
   background-color: rgb(229, 245, 220);
   border: 1px black solid; 
 }
 
+#cantPaginas{
+  font-size: 85%;
+}
+
+#titulo{
+  background-color: beige;
+  border-radius: 10px;
+  padding: 10px;
+}

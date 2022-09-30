@@ -19,12 +19,11 @@ function mostrarLibros(arrayLibros) {
 
             if (search == undefined || search == "" || libro.titulo.toLowerCase().indexOf(search.toLowerCase()) > -1) {
                 let contenido = `
-                <li onclick="redireccionar(${libro.id})">
-                    Título: ${libro.titulo} <br>
-                    Autor: ${libro.autor} <br>
-                    Páginas: ${libro.paginas}
+                <li class="list-group-item bg-transparent" onclick="redireccionar(${libro.id})">
+                    <h5>${libro.titulo}</h5>
+                    <p class="mb-1 text-muted">${libro.autor}</p>
+                    <p class="mb-1 text-muted" id="cantPaginas">Páginas: ${libro.paginas}</p>
                 </li>
-                <hr>
                 `;
                 document.getElementById("listado").innerHTML += contenido;
             }

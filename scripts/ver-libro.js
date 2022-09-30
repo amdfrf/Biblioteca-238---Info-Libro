@@ -11,15 +11,11 @@ function mostrar_infolibro(){
         htmlcontentoAppend += `
         
             <h3>${info_libro.titulo} </h3>
-            <p>${info_libro.isbn} <br>
-            ${info_libro.editorial} <br>
-            ${info_libro.paginas}   <br>
-            ${info_libro.autor} <br>
-            ${info_libro.descripcion}
-            </p>
-
-
-        `
+            <p>${info_libro.isbn}</p>
+            <p>${info_libro.editorial} </p>
+            <p>${info_libro.paginas} páginas</p>
+            <p>${info_libro.autor}</p>
+            <p>${info_libro.descripcion}</p>`
 
     contenido.innerHTML += htmlcontentoAppend;
 
@@ -34,8 +30,7 @@ document.addEventListener("DOMContentLoaded", function(){
             mostrar_infolibro();
         } 
         
-
-    }
+    })
 
 
 })

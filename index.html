@@ -3,47 +3,67 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Libros</title>
 </head>
 
 <body>
-    <h1>Estos son los libros disponibles en la biblioteca:</h1> <br>
 
+    <div class="container">
+        <div class="container mt-5 mb-5" id="titulo">
+            <h1>Bienvenid@ a tu biblioteca virtual</h1>
+            <h4>Estos son los libros disponibles en la biblioteca:</h4>
+        </div>
 
-    <div id="filtro-rango-pag">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <div class="container rounded" id="filtro-rango-pag">
+                        <p>Ordenar por:</p> 
+                
+                        <button class="btn btn-outline-secondary" id="sortPagDesc">Pags Desc</button>
+                
+                        <hr>
+                
+                        <p>Filtrar por Paginas:</p>
+                
+                        <input type="number" placeholder="min." id="rango-min"> <br><br>
+                
+                        <input type="number" placeholder="máx." id="rango-max"> <br><br>
+                
+                        <button id="filtrar">Filtrar</button>
+                        <button id="limpiar">Limpiar</button><br><br>
+                
+                        <hr>
+                
+                        <p>O busca el libro que quieres:</p> 
+                
+                        <input type="search" id="buscador"> <br><br>
+                
+                
+                
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="container">
+                        <ul id="listado" class="list-group">
 
-        <p>Ordenar por:</p> 
-
-        <button id="sortPagDesc">Pags Desc</button>
-
-        <hr>
-
-        <p>Filtrar por Paginas:</p>
-
-        <input type="number" placeholder="min." id="rango-min"> <br><br>
-
-        <input type="number" placeholder="máx." id="rango-max"> <br><br>
-
-        <button id="filtrar">Filtrar</button>
-        <button id="limpiar">Limpiar</button><br><br>
-
-        <hr>
-
-        <p>O busca el libro que quieres:</p> 
-
-        <input type="search" id="buscador"> <br><br>
-
-
-
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+        
 
-    <br><br>
-
-    <div id="listado"></div>
+    
+    
 
     <script src="scripts/init.js"></script>
     <script src="scripts/libros.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
 </body>
 
 </html>
