@@ -32,10 +32,9 @@ document.addEventListener("DOMContentLoaded", function(){
             if (resultado.status == "ok") {
             info_libro = resultado.data;
             mostrar_infolibro();
-        } 
+        }
         
+        
+        })
 
-    }
-
-
-})
+});
