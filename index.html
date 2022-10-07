@@ -12,49 +12,46 @@
 <body>
 
     <div class="container">
-        <div class="container mt-5 mb-5" id="titulo">
+        <div class="container rounded beige my-5 p-3" id="titulo">
             <h1>Bienvenid@ a tu biblioteca virtual</h1>
             <h4>Estos son los libros disponibles en la biblioteca:</h4>
         </div>
 
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-4 mb-5">
-                    <div class="container rounded" id="filtro-rango-pag">
-                        <div class="row">
-                            <div class="col-lg-12 mb-4 col-sm-6">
-                                <p>Ordenar por:</p>
-                                <button class="btn btn-outline-secondary" id="sortPagDesc">Pags Desc</button>
-                            </div>
+                <div class="container rounded beige mb-5 p-3 col-sm-12 col-lg-3" id="filtros">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-4">
+                            <p>Ordenar por:</p>
+                            <button class="btn btn-outline-secondary" id="sortPagDesc">Pags Desc</button>
                             <hr class="d-sm-none d-lg-block">
-                            <div class="col-lg-12 col-sm-6">
-                                <p>Filtrar por Paginas:</p>
-                                
-                                <div class="row" id="numberInput">
-                                    <input class="border border-4 rounded" type="number" placeholder="min." id="rango-min">
-                                    <input class="border border-4 rounded" type="number" placeholder="máx." id="rango-max">
+                        </div>
+                        <div class="col-lg-12 col-sm-8">
+                            <p>Filtrar por Paginas:</p>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-6">
+                                    <input class="border border-4 rounded mb-2" type="number" placeholder="min." id="rango-min">
+                            
+                                    <input class="border border-4 rounded mb-2" type="number" placeholder="máx." id="rango-max">
+                                </div>
+                                <div class="col-lg-12 col-sm-6">
+                                    <button class="btn btn-outline-secondary" id="filtrar">Filtrar</button>
+                                    <button class="btn btn-outline-secondary" id="limpiar">Limpiar</button>
                                 </div>
                             </div>
-                        
-                            
-                                <button id="filtrar" class="btn btn-outline-secondary">Filtrar</button>
-                                <button id="limpiar" class="btn btn-outline-secondary">Limpiar</button>
-                            </div>
                             <hr class="d-sm-none d-lg-block">
-                            <div class="col-lg-12 col-sm-12">
-                                <p>O busca el libro que quieres: 
-                                <input class="border border-4 rounded" type="search" id="buscador"></p>
-                            </div>
+                        </div>
+                        <div class="col-12">
+                            <p>O busca el libro que quieres:</p>
+                            <input class="border border-4 rounded" type="search" id="buscador">
                         </div>
                     </div>
                 </div>
 
-                <div class=" col-12 col-lg-8">
-                    <div class="container">
-                        <ul id="listado" class="list-group">
+                <div class="container rounded beige mb-5 p-3 col-sm-12 col-lg-8">
+                    <ul class="list-group" id="listado">
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>

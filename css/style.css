@@ -5,23 +5,24 @@ body{
 
 }
 
-.signin, #listado {
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    background-color: beige;
-  }
+.beige, #contenido {
+  background-color: beige;
+}
 
-.invalid{
+#filtros input {
+  width: 100%;
+}
+
+.signin {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  background-color: beige;
+}
+
+.invalid {
   background-color: red;
 }
-
-#filtro-rango-pag {
-  padding: 15px;
-  background-color: beige;
-  width: fit-content;
-}
-
 
 #info-user {
   padding: 15px;
@@ -29,24 +30,14 @@ body{
   border: 1px black solid; 
 }
 
-#cantPaginas{
+#cantPaginas {
   font-size: 85%;
 }
 
-#titulo,#contenido{
-  background-color: beige;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.caja{
+.caja {
   width: 100px;
 }
 
-.infoAd{
+.infoAd {
   margin: 0px;
 }
-
-/* #numberInput *{
-  width: 25%;
-} */
