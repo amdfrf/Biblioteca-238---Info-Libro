@@ -33,7 +33,7 @@ body{
   font-size: 85%;
 }
 
-#titulo{
+#titulo,#contenido{
   background-color: beige;
   border-radius: 10px;
   padding: 10px;
@@ -43,8 +43,8 @@ body{
   width: 100px;
 }
 
-#contenido{
-  background-color: beige;
+.infoAd{
+  margin: 0px;
 }
 
 /* #numberInput *{

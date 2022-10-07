@@ -11,10 +11,12 @@ function mostrar_infolibro(){
         htmlcontentoAppend += `
         
             <h3>${info_libro.titulo} </h3>
-            <p>${info_libro.isbn}</p>
-            <p>${info_libro.editorial} </p>
-            <p>${info_libro.paginas} páginas</p>
-            <p>${info_libro.autor}</p>
+            <p class="ml-5 text-muted">${info_libro.autor}</p>
+            <hr>
+            <p class="text-muted infoAd">${info_libro.isbn}</p>
+            <p class="text-muted infoAd">${info_libro.editorial} </p>
+            <p class="text-muted infoAd">${info_libro.paginas} páginas</p>
+            <hr>
             <p>${info_libro.descripcion}</p>`
 
     contenido.innerHTML += htmlcontentoAppend;
