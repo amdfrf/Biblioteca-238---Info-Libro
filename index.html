@@ -19,34 +19,37 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-5">
+                <div class="col-12 col-lg-4 mb-5">
                     <div class="container rounded" id="filtro-rango-pag">
-                        <p>Ordenar por:</p> 
-                
-                        <button class="btn btn-outline-secondary" id="sortPagDesc">Pags Desc</button>
-                
-                        <hr>
-                
-                        <p>Filtrar por Paginas:</p>
-                
-                        <input type="number" placeholder="min." id="rango-min"> <br><br>
-                
-                        <input type="number" placeholder="máx." id="rango-max"> <br><br>
-                
-                        <button id="filtrar">Filtrar</button>
-                        <button id="limpiar">Limpiar</button><br><br>
-                
-                        <hr>
-                
-                        <p>O busca el libro que quieres:</p> 
-                
-                        <input type="search" id="buscador"> <br><br>
-                
-                
-                
+                        <div class="row">
+                            <div class="col-lg-12 mb-4 col-sm-6">
+                                <p>Ordenar por:</p>
+                                <button class="btn btn-outline-secondary" id="sortPagDesc">Pags Desc</button>
+                            </div>
+                            <hr class="d-sm-none d-lg-block">
+                            <div class="col-lg-12 col-sm-6">
+                                <p>Filtrar por Paginas:</p>
+                                
+                                <div class="row" id="numberInput">
+                                    <input class="border border-4 rounded" type="number" placeholder="min." id="rango-min">
+                                    <input class="border border-4 rounded" type="number" placeholder="máx." id="rango-max">
+                                </div>
+                            </div>
+                        
+                            
+                                <button id="filtrar" class="btn btn-outline-secondary">Filtrar</button>
+                                <button id="limpiar" class="btn btn-outline-secondary">Limpiar</button>
+                            </div>
+                            <hr class="d-sm-none d-lg-block">
+                            <div class="col-lg-12 col-sm-12">
+                                <p>O busca el libro que quieres: 
+                                <input class="border border-4 rounded" type="search" id="buscador"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-7">
+
+                <div class=" col-12 col-lg-8">
                     <div class="container">
                         <ul id="listado" class="list-group">
 

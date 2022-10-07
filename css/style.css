@@ -19,6 +19,7 @@ body{
 #filtro-rango-pag {
   padding: 15px;
   background-color: beige;
+  width: fit-content;
 }
 
 
@@ -37,3 +38,15 @@ body{
   border-radius: 10px;
   padding: 10px;
 }
+
+.caja{
+  width: 100px;
+}
+
+#contenido{
+  background-color: beige;
+}
+
+/* #numberInput *{
+  width: 25%;
+} */
