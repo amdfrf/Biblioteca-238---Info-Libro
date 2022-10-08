@@ -8,15 +8,8 @@ body{
   background-color: beige;
 }
 
-#filtros input {
+#filtros input, #inputEmail, #inputPassword {
   width: 100%;
-}
-
-.signin {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  background-color: beige;
 }
 
 .invalid {
@@ -27,14 +20,6 @@ body{
   padding: 15px;
   background-color: rgb(229, 245, 220);
   border: 1px black solid; 
-}
-
-#cantPaginas {
-  font-size: 85%;
-}
-
-.caja {
-  width: 100px;
 }
 
 .cursor-active {
