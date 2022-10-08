@@ -3,11 +3,13 @@ let min = undefined;
 let max = undefined;
 let search = undefined;
 
+// Redirecciono a info del libro al seleccionar libro:
 function redireccionar(id) {
     localStorage.setItem("libroID", id);
     window.location = "ver-libro.html";
 }
 
+// Muestro lista de libros aplicando filtros:
 function mostrarLibros(arrayLibros) {
     document.getElementById("listado").innerHTML = "";
     for (let libro of arrayLibros) {
@@ -19,7 +21,7 @@ function mostrarLibros(arrayLibros) {
 
             if (search == undefined || search == "" || libro.titulo.toLowerCase().indexOf(search.toLowerCase()) > -1) {
                 let contenido = `
-                <li class="list-group-item bg-transparent" onclick="redireccionar(${libro.id})">
+                <li class="list-group-item cursor-active bg-transparent" onclick="redireccionar(${libro.id})">
                     <h5>${libro.titulo}</h5>
                     <p class="mb-1 text-muted">${libro.autor}</p>
                     <p class="mb-1 text-muted" id="cantPaginas">Páginas: ${libro.paginas}</p>
@@ -72,59 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
             })
 
             
-
         }else{
             alert("Algo salió mal: " + resultado.data);
         }
     })
 
 
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//(!(parseInt(libro.paginas) < min) && !(parseInt(libro.paginas) > max))
