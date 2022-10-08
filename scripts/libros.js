@@ -23,8 +23,8 @@ function mostrarLibros(arrayLibros) {
                 let contenido = `
                 <li class="list-group-item cursor-active bg-transparent" onclick="redireccionar(${libro.id})">
                     <h5>${libro.titulo}</h5>
-                    <p class="mb-1 text-muted">${libro.autor}</p>
-                    <p class="mb-1 text-muted" id="cantPaginas">Páginas: ${libro.paginas}</p>
+                    <h6 class="text-muted">${libro.autor}</h6>
+                    <p class="text-muted small m-0">Páginas: ${libro.paginas}</p>
                 </li>
                 `;
                 document.getElementById("listado").innerHTML += contenido;
