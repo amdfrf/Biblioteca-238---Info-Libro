@@ -38,6 +38,6 @@ body{
   width: 100px;
 }
 
-.infoAd {
-  margin: 0px;
+.cursor-active {
+  cursor: pointer;
 }
