@@ -1,7 +1,32 @@
 let info_libro;
 let contenido = document.getElementById("contenido");
 let imagenes = document.getElementById("imagenes");
+let libroID = localStorage.getItem("libroID");
 
+function guardarLibro(libro){
+    if(nocart.libroID)
+        alert("Ya está en el cajón");
+    else{
+
+        nocart[libroID] = {
+            titulo : libro.titulo,
+            autor : libro.autor
+        }
+
+        localStorage.setItem("noCart",JSON.stringify(nocart));
+    }
+
+    
+
+    /*
+    a) Si no existe
+        Crear objeto nuevo
+    b) Si no está vacío
+        Transformarlo a JSON
+    2) Agregarle el nuevo libro
+
+    */
+}
 
 function mostrar_infolibro() {
 
@@ -32,15 +57,17 @@ function mostrar_infolibro() {
 
 
 document.addEventListener("DOMContentLoaded", function(){
-
-    getJSONData(LIBRO_URL + localStorage.getItem("libroID") +".json").then(resultado => {
+    
+    getJSONData(LIBRO_URL + libroID +".json").then(resultado => {
         
         if (resultado.status == "ok") {
             info_libro = resultado.data;
             mostrar_infolibro();
+            document.getElementById("addToCart").addEventListener("click",function(){
+                guardarLibro(info_libro);
+            });
         } 
         
-    })
-
-
+    });
+    
 })
