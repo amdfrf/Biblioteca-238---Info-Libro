@@ -23,3 +23,9 @@ function getJSONData(url){
         return result;
     });
 }
+
+// Inicializo cajon de prestamos:
+let noCart = JSON.parse(localStorage.getItem("noCart")); // trae la lista guardada si ya existia
+if (noCart == null) {
+  noCart = {}; // crea lista vacia para llenar luego, si no habia lista previa
+}

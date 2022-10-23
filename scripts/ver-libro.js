@@ -3,29 +3,21 @@ let contenido = document.getElementById("contenido");
 let imagenes = document.getElementById("imagenes");
 let libroID = localStorage.getItem("libroID");
 
-function guardarLibro(libro){
-    if(nocart.libroID)
-        alert("Ya está en el cajón");
-    else{
-
-        nocart[libroID] = {
-            titulo : libro.titulo,
-            autor : libro.autor
-        }
-
-        localStorage.setItem("noCart",JSON.stringify(nocart));
+// Funcion para agregar libro al cajon de prestamos:
+function guardarLibro() {
+    let libro = "A" + libroID; // concateno con letra al principio porque solo numeros da problemas
+    if (noCart[libro]) {
+        alert("El libro ya está en el cajón.");
+    } else {
+        noCart[libro] = [
+            {
+                titulo: info_libro.titulo,
+                autor: info_libro.autor
+            }
+        ]
+        localStorage.setItem("noCart",JSON.stringify(noCart));
+        alert("Libro agregado al cajón.");
     }
-
-    
-
-    /*
-    a) Si no existe
-        Crear objeto nuevo
-    b) Si no está vacío
-        Transformarlo a JSON
-    2) Agregarle el nuevo libro
-
-    */
 }
 
 function mostrar_infolibro() {
@@ -63,8 +55,9 @@ document.addEventListener("DOMContentLoaded", function(){
         if (resultado.status == "ok") {
             info_libro = resultado.data;
             mostrar_infolibro();
+
             document.getElementById("addToCart").addEventListener("click",function(){
-                guardarLibro(info_libro);
+                guardarLibro();
             });
         } 
         
