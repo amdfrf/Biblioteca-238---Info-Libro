@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/logo_pestana.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-        // Redirecciono a pantalla de log in si no hay usuario en local storage:
-        if (localStorage.getItem("mail") == null) {
-          window.location = "login.html";
-        };
-    </script>
-    <title>Biblioteca virtual - Cajón de préstamos</title>
-</head>
-<body>
-    <div class="container rounded beige my-5 p-3">
-        <h3>Cajón de préstamos</h3>
-        <hr>
-        <div id="listaLibros">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logo_pestana.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Redirecciono a pantalla de log in si no hay usuario en local storage:
+    if (localStorage.getItem("mail") == null) {
+      window.location = "login.html";
+    };
+  </script>
+  <title>Biblioteca virtual - Cajón de préstamos</title>
+</head>
+
+<body>
+  <main>
+    <div class="container rounded beige my-5 p-3">
+      <div class="row mb-4">
+        <div class="col-12 col-md-6">
+          <h3>Cajón de préstamos</h3>
         </div>
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#solicitarLibros">
+        <div class="col-12 col-md-6 text-md-end">
+          <button type="button" class="btn btn-dark" id="solicitarLibros" data-bs-toggle="modal"
+            data-bs-target="#solicitarLibros">
             Solicitar pŕestamo
-        </button>
-        <div class="modal fade" id="solicitarLibros" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalLabel">Solicitar préstamo</h5>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <label for="departamento">Departamento:</label><br>
-                         <input class="form-control" type="text" id="departamento" name="departamento">
-                        <label for="ciudad">Ciudad:</label>
-                         <input class="form-control" type="text" id="ciudad" name="ciudad">
-                        <label for="calle">Calle:</label>
-                         <input class="form-control" type="text" id="calle" name="calle">
-                        <label for="numero">Numero:</label>
-                         <input class="form-control" type="text" id="numero" name="numero">
-                        <button id="solicitarPrestamo" type="submit" class="btn btn-dark btn-lg w-100">
-                            Solicitar préstamo
-                        </button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-dark fw-bold" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          </button>
+          <a class="btn btn-outline-secondary" href="index.html">Ver lista de libros</a>
+        </div>
+      </div>
+
+      <div id="tituloTabla" class="d-none d-md-block">
+
+      </div>
+      <div id="listaLibros">
+
+      </div>
     </div>
 
-    <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/init.js"></script>
-    <script src="scripts/nocart.js"></script>
+    <div class="modal fade" id="solicitarLibros" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Solicitar préstamo</h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <label for="departamento">Departamento:</label><br>
+              <input class="form-control" type="text" id="departamento" name="departamento">
+              <label for="ciudad">Ciudad:</label>
+              <input class="form-control" type="text" id="ciudad" name="ciudad">
+              <label for="calle">Calle:</label>
+              <input class="form-control" type="text" id="calle" name="calle">
+              <label for="numero">Numero:</label>
+              <input class="form-control" type="text" id="numero" name="numero">
+              <button id="solicitarPrestamo" type="submit" class="btn btn-dark btn-lg w-100 mt-4">
+                Solicitar préstamo
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/init.js"></script>
+  <script src="scripts/nocart.js"></script>
 </body>
+
 </html>

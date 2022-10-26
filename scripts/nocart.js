@@ -1,5 +1,7 @@
 let fecha;
-function fechaDevolucion (fecha, dias){
+
+// Funcion que calcula la fecha de devolucion del libro:
+function fechaDevolucion(fecha, dias) {
     let fechaDev = new Date();
     fechaDev.setDate(fecha.getDate() + dias);
     return fechaDev;
@@ -7,18 +9,18 @@ function fechaDevolucion (fecha, dias){
 
 // Funcion que muestra la lista de libros en el cajon de prestamos:
 function mostrarListaLibros() {
-    document.getElementById("listaLibros").innerHTML += `
+    document.getElementById("tituloTabla").innerHTML += `
     <div class="row">
         <div class="col-2">   
         </div>
         <div class="col-3">
-            <strong>Título</strong>
+            <h5>Título</h5>
         </div>
         <div class="col-2">
-            <strong>Páginas</strong>
+            <h5>Páginas</h5>
         </div>
         <div class="col-3">
-            <strong>Fecha de devolución</strong>
+            <h5>Fecha de devolución</h5>
         </div>
         <div class="col-2"> 
         </div>
@@ -27,56 +29,67 @@ function mostrarListaLibros() {
 
     for (let libro in noCart) {
         let fecha = new Date();
-        let fechaDev = fechaDevolucion(fecha, (parseInt(noCart[libro][0].paginas))/50);
-        
+        let fechaDev = fechaDevolucion(fecha, (parseInt(noCart[libro][0].paginas)) / 50);
+
         document.getElementById("listaLibros").innerHTML += `
+        <hr>
         <div class="row mb-4">
-            <div class="col-2">
-                <img src="${noCart[libro][0].imagen}" class="img-thumbnail" height="100px">
+            <div class="col-4 col-md-2">
+                <img src="${noCart[libro][0].imagen}" height="150px">
             </div>
-            <div class="col-3">
-                ${noCart[libro][0].titulo}
+            <div class="col-3 d-none d-md-block">
+                <strong>${noCart[libro][0].titulo}</strong>
             </div>
-            <div class="col-2">
+            <div class="col-2 d-none d-md-block">
                 ${noCart[libro][0].paginas}
             </div>
-            <div class="col-3">
+            <div class="col-3 d-none d-md-block">
                 ${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}
             </div>
-            <div class="col-2 text-end"> 
-                <button type="button" class="btn btn-outline-secondary" onclick="eliminarLibro(${JSON.stringify(noCart[libro])})">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                </svg>
+            <div class="col-2 text-end d-none d-md-block"> 
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="eliminarLibro(${noCart[libro][0].id})">
+                    Quitar
+                </button>
+            </div>
+            <div class="col-8 d-block d-md-none">
+                <h6>${noCart[libro][0].titulo}</h6><br>
+                ${noCart[libro][0].paginas} páginas<br>
+                <strong>Devolución:</strong> ${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}<br>
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="eliminarLibro(${noCart[libro][0].id})">
+                    Quitar
                 </button>
             </div>
         </div>
-        <hr>
         `;
     }
 }
 
 // Funcion que elimina un libro del cajón:
-function eliminarLibro(libro) {
-    console.log(libro);
-    let id = libro.getAttribute('id');
-    console.log(id);
+function eliminarLibro(libroID) {
+    let id = "A" + libroID;
     delete noCart[id];
     localStorage.setItem("noCart", JSON.stringify(noCart));
-    // event.target.parentNode.parentNode.remove();
+    event.target.parentNode.parentNode.remove();
+    // Aviso si el cajon queda vacio:
+    if (Object.entries(noCart).length === 0) {
+        avisoListaVacia()
+    }
+}
+
+// Funcion que avisa si el cajon de prestamos esta vacio:
+function avisoListaVacia() {
+    document.getElementById("listaLibros").innerHTML = `
+        <hr>
+        <p class="lead text-muted text-center fw-bold">No tienes libros en tu cajón de préstamos.</p>
+    `;
+    document.getElementById("solicitarLibros").disabled = true;
 }
 
 // Funciones que se ejecutan una vez cargado el HTML:
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
     if (Object.entries(noCart).length === 0) {
-        alert("No tienes libros en tu cajón de préstamos.");
+        avisoListaVacia()
     } else {
         mostrarListaLibros();
     }
 });
-
-
-
-
-
-

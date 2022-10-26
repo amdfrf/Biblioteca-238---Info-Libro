@@ -23,25 +23,24 @@ document.getElementById("submitBtn").addEventListener("click", function () {
 });
 */
 
-function validar(form,e){
-    resu = true;
+function validar(form, e) {
+    let flag = true;
     e.preventDefault();
     e.stopPropagation();
-    if(!form.checkValidity()){
-        resu = false;
+    if (!form.checkValidity()) {
+        flag = false;
     }
     form.classList.add("was-validated");
-    return resu
+    return flag
 }
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
     let loginForm = document.getElementById("loginForm");
-    loginForm.addEventListener("submit",function(e){
-        if(validar(loginForm,e)){
-            let mail = document.getElementById('inputEmail').value;
-            localStorage.setItem('mail',mail);
-            window.location.href = 'index.html';
-            
+    loginForm.addEventListener("submit", function (e) {
+        if (validar(loginForm, e)) {
+            let email = document.getElementById('inputEmail').value;
+            localStorage.setItem('email', email);
+            window.location = 'index.html';
         }
     });
 });

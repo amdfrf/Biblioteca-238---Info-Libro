@@ -4,22 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="shortcut icon" href="img/logo_pestana.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
     <title>Biblioteca virtual - Libros</title>
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="container row rounded beige my-5 p-3" id="titulo">
-            <div class="col-10">
-                <h1>Bienvenid@ a tu biblioteca virtual</h1>
-                <h4>Estos son los libros disponibles en la biblioteca:</h4>
-            </div>
-            <div class="col-2">
-                <a class="btn btn-dark" href="nocart.html" role="button">Ver mi cajón de préstamos</a>
+    <main>
+        <div class="row justify-content-center">
+            <div class="container row justify-content-between rounded beige my-5 p-3 col-10">
+                <div class="col-12 col-md-8">
+                    <h1>Bienvenid@ a tu biblioteca virtual</h1>
+                    <h4>Estos son los libros disponibles en la biblioteca:</h4>
+                </div>
+                <div class="col-12 col-md-2">
+                    <a class="btn btn-dark" href="nocart.html" role="button">Cajón de préstamos</a>
+                </div>
             </div>
         </div>
 
@@ -36,9 +39,11 @@
                             <p>Filtrar por Paginas:</p>
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6">
-                                    <input class="border border-4 rounded mb-2" type="number" placeholder="min." id="rango-min">
-                            
-                                    <input class="border border-4 rounded mb-2" type="number" placeholder="máx." id="rango-max">
+                                    <input class="border border-4 rounded mb-2" type="number" placeholder="min."
+                                        id="rango-min">
+
+                                    <input class="border border-4 rounded mb-2" type="number" placeholder="máx."
+                                        id="rango-max">
                                 </div>
                                 <div class="col-lg-12 col-sm-6">
                                     <button class="btn btn-outline-secondary" id="filtrar">Filtrar</button>
@@ -61,11 +66,7 @@
                 </div>
             </div>
         </div>
-    </div>
-        
-
-    
-    
+    </main>
 
     <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/init.js"></script>

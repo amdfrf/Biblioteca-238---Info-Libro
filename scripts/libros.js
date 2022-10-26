@@ -15,9 +15,7 @@ function mostrarLibros(arrayLibros) {
     for (let libro of arrayLibros) {
         libro.paginas = parseInt(libro.paginas);
 
-        if  (!(libro.paginas < min) && !(libro.paginas > max))
-         /* ((min == undefined && max == undefined) || (libro.paginas >= min && libro.paginas <= max) ||
-        (libro.paginas >= min && max == undefined) || (libro.paginas <= max && min == undefined)) */ {
+        if (!(libro.paginas < min) && !(libro.paginas > max)) {
 
             if (search == undefined || search == "" || libro.titulo.toLowerCase().indexOf(search.toLowerCase()) > -1) {
                 let contenido = `
@@ -41,18 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("filtrar").addEventListener("click", function () {
                 if (document.getElementById("rango-min").value != "") {
                     min = parseInt(document.getElementById("rango-min").value);
-                }else{
+                } else {
                     min = undefined;
                 }
-        
+
                 if (document.getElementById("rango-max").value != "") {
                     max = parseInt(document.getElementById("rango-max").value);
-                }else{
+                } else {
                     max = undefined;
                 }
                 mostrarLibros(listaLibros);
             })
-        
+
             document.getElementById("limpiar").addEventListener("click", function () {
                 min = undefined;
                 max = undefined;
@@ -60,24 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("rango-max").value = "";
                 mostrarLibros(listaLibros);
             })
-        
+
             document.getElementById("buscador").addEventListener("input", function () {
                 search = document.getElementById("buscador").value;
                 mostrarLibros(listaLibros);
             })
-        
+
             document.getElementById("sortPagDesc").addEventListener("click", function () {
                 listaLibros.sort(function (a, b) {
                     return parseInt(b.paginas) - parseInt(a.paginas);
                 })
                 mostrarLibros(listaLibros);
             })
-
-            
-        }else{
+        } else {
             alert("Algo salió mal: " + resultado.data);
         }
     })
-
-
 });
