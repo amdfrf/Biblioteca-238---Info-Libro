@@ -11,8 +11,10 @@ function guardarLibro() {
     } else {
         noCart[libro] = [
             {
+                id: libroID,
                 titulo: info_libro.titulo,
-                autor: info_libro.autor
+                paginas: info_libro.paginas,
+                imagen: info_libro.imagenes[0]
             }
         ]
         localStorage.setItem("noCart",JSON.stringify(noCart));

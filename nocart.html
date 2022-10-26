@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo_pestana.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Redirecciono a pantalla de log in si no hay usuario en local storage:
+        if (localStorage.getItem("mail") == null) {
+          window.location = "login.html";
+        };
+    </script>
     <title>Biblioteca virtual - Cajón de préstamos</title>
 </head>
 <body>
@@ -15,8 +22,36 @@
         <div id="listaLibros">
 
         </div>
-        <hr>
-
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#solicitarLibros">
+            Solicitar pŕestamo
+        </button>
+        <div class="modal fade" id="solicitarLibros" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Solicitar préstamo</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label for="departamento">Departamento:</label><br>
+                         <input class="form-control" type="text" id="departamento" name="departamento">
+                        <label for="ciudad">Ciudad:</label>
+                         <input class="form-control" type="text" id="ciudad" name="ciudad">
+                        <label for="calle">Calle:</label>
+                         <input class="form-control" type="text" id="calle" name="calle">
+                        <label for="numero">Numero:</label>
+                         <input class="form-control" type="text" id="numero" name="numero">
+                        <button id="solicitarPrestamo" type="submit" class="btn btn-dark btn-lg w-100">
+                            Solicitar préstamo
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-dark fw-bold" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 
     <script src="scripts/bootstrap.min.js"></script>

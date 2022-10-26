@@ -4,24 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logo_pestana.png" type="image/x-icon">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Biblioteca virtual - Log In</title>
+  <script>
+    if(localStorage.getItem('mail'))
+      window.location.href = 'index.html';
+  </script>
 </head>
 
 <body>
-  <div class="container rounded beige my-5 p-3 col-sm-12 col-lg-4">
+  <div class="container rounded beige my-5 p-3 col-sm-8 col-lg-8">
 
-    <h3>Inicio de sesión</h3>
-      <div class="container my-4">
-        <label for="inputEmail">Email:</label><br>
-        <input class="border border-4 rounded mb-2" type="email" id="inputEmail" placeholder="Email">
-        <label for="inputPassword">Contraseña:</label><br>
-        <input class="border border-4 rounded mb-2" type="password" id="inputPassword" placeholder="Contraseña">
+    <h3 class="text-center text-uppercase">Inicio de sesión</h3>
+      <div class="w-50 container my-4">
+        <img class="w-75" src="img/logo_complejo.png" alt="">
+        <form id="loginForm" class="needs-validation" novalidate>
+          <div class="col-12">
+            <label class="form-label" for="inputEmail">Email:</label><br>
+            <input required class="form-control border border-4 rounded mb-2 iptValidar" type="email" id="inputEmail" placeholder="Email">
+            <div class="invalid-feedback">
+              Debes ingresar un email válido.
+            </div>
+          </div>
+          <div class="col-12 mt-5">
+            <label class="form-label" for="inputPassword">Contraseña:</label>
+            <input required class="form-control border border-4 rounded mb-2 iptValidar" type="password" id="inputPassword" placeholder="Contraseña">
+            <div class="invalid-feedback">
+              Debes ingresar una contraseña.
+            </div>
+          </div>
+          <input type="submit" class="mt-5 btn btn-dark" id="submitBtn" value="Ingresar">
+        </form>
       </div>
-      <button class="btn btn-dark" id="submitBtn">Ingresar</button>
-  </div>
-
+    </div>
   </div>
 
   <script src="scripts/bootstrap.min.js"></script>
