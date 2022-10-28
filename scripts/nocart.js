@@ -1,5 +1,5 @@
 let fecha;
-
+let formPrestamo = document.getElementById('formPrestamo')
 // Funcion que calcula la fecha de devolucion del libro:
 function fechaDevolucion(fecha, dias) {
     let fechaDev = new Date();
@@ -26,14 +26,17 @@ function mostrarListaLibros() {
         </div>
     </div>
     `;
-
+    
+    let dias = 0;
+    
     for (let libro in noCart) {
-        let fecha = new Date();
-        let fechaDev = fechaDevolucion(fecha, (parseInt(noCart[libro][0].paginas)) / 50);
-
+        
+        dias += (parseInt(noCart[libro][0].paginas)) / 50
+        
+        
         document.getElementById("listaLibros").innerHTML += `
         <hr>
-        <div class="row mb-4">
+        <div class="libroEnCarrito row mb-4" data-paginas='${noCart[libro][0].paginas}'>
             <div class="col-4 col-md-2">
                 <img src="${noCart[libro][0].imagen}" height="150px">
             </div>
@@ -43,8 +46,7 @@ function mostrarListaLibros() {
             <div class="col-2 d-none d-md-block">
                 ${noCart[libro][0].paginas}
             </div>
-            <div class="col-3 d-none d-md-block">
-                ${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}
+            <div class="fechaDevolucion col-3 d-none d-md-block">
             </div>
             <div class="col-2 text-end d-none d-md-block"> 
                 <button type="button" class="btn btn-outline-secondary btn-sm" onclick="eliminarLibro(${noCart[libro][0].id})">
@@ -54,13 +56,21 @@ function mostrarListaLibros() {
             <div class="col-8 d-block d-md-none">
                 <h6>${noCart[libro][0].titulo}</h6><br>
                 ${noCart[libro][0].paginas} páginas<br>
-                <strong>Devolución:</strong> ${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}<br>
+                <strong>Devolución: </strong><span class='fechaDevolucion'></span> <br>
                 <button type="button" class="btn btn-outline-secondary btn-sm" onclick="eliminarLibro(${noCart[libro][0].id})">
                     Quitar
                 </button>
             </div>
         </div>
         `;
+    }
+    if(dias > 15)
+        dias = 15
+    let fecha = new Date();
+    let fechaDev = fechaDevolucion(fecha,dias);
+    let devoluciones = document.getElementsByClassName('fechaDevolucion');
+    for(let i = 0;i < devoluciones.length;i++){
+        devoluciones[i].innerHTML = `${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}`;
     }
 }
 
@@ -93,3 +103,38 @@ document.addEventListener("DOMContentLoaded", function () {
         mostrarListaLibros();
     }
 });
+
+formPrestamo.addEventListener("submit", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!formPrestamo.checkValidity()) {
+            flag = false;
+        }
+        formPrestamo.classList.add("was-validated");
+});
+
+let calleDireccion = document.getElementById('calle');
+let numeroDireccion = document.getElementById('numero');
+
+
+`
+<div class="modal fade" id="tiket" tabindex="-1" aria-labelledby="tiketPrestamo" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title">¡Gracias por tu reserva!</h5>
+  </div>
+  <div class="modal-body">
+  <p>${localStorage.getItem("mail")}, tu préstamo ya fue aceptado.</p>
+  <p>Libros reservados:</P>
+  <p>Fecha de devolución: ${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}<p
+  <p>Dirección de envío:${calleDireccion.value} ${numeroDireccion.value} </P>
+  
+  </div>
+  <div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Aceptar</button>
+  </div>
+</div>
+</div>
+<
+`

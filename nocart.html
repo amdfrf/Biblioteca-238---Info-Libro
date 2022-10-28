@@ -26,7 +26,7 @@
         </div>
         <div class="col-12 col-md-6 text-md-end">
           <button type="button" class="btn btn-dark" id="solicitarLibros" data-bs-toggle="modal"
-            data-bs-target="#solicitarLibros">
+            data-bs-target="#modalSolicitarLibros">
             Solicitar pŕestamo
           </button>
           <a class="btn btn-outline-secondary" href="index.html">Ver lista de libros</a>
@@ -41,22 +41,39 @@
       </div>
     </div>
 
-    <div class="modal fade" id="solicitarLibros" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalSolicitarLibros" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modalLabel">Solicitar préstamo</h5>
           </div>
           <div class="modal-body">
-            <form>
-              <label for="departamento">Departamento:</label><br>
-              <input class="form-control" type="text" id="departamento" name="departamento">
-              <label for="ciudad">Ciudad:</label>
-              <input class="form-control" type="text" id="ciudad" name="ciudad">
-              <label for="calle">Calle:</label>
-              <input class="form-control" type="text" id="calle" name="calle">
-              <label for="numero">Numero:</label>
-              <input class="form-control" type="text" id="numero" name="numero">
+            <form class="needs-validation" id="formPrestamo" novalidate>
+              <div>
+                <label class="form-label" for="departamento">Departamento:</label><br>
+                <input class="form-control" type="text" id="departamento" name="departamento" required>
+                <div class="invalid-feedback">Ingrese departamento</div>
+              </div>
+              <div>
+                <label class="form-label" for="ciudad">Ciudad:</label>
+                <input class="form-control" type="text" id="ciudad" name="ciudad" required>
+                <div class="invalid-feedback">Ingrese ciudad</div>
+              </div>
+
+              <div>
+                <label class="form-label" for="calle">Calle:</label>
+                <input class="form-control" type="text" id="calle" name="calle" required>
+                <div class="invalid-feedback">Ingrese calle</div>
+              </div>
+
+              <div>
+                <label class="form-label" for="numero">Numero:</label>
+                <input class="form-control" type="text" id="numero" name="numero" required>
+                <div class="invalid-feedback">Ingrese numero</div>
+              </div>
+
+              
+
               <button id="solicitarPrestamo" type="submit" class="btn btn-dark btn-lg w-100 mt-4">
                 Solicitar préstamo
               </button>
@@ -65,6 +82,14 @@
         </div>
       </div>
     </div>
+
+
+
+  
+
+
+
+
   </main>
 
   <script src="scripts/bootstrap.min.js"></script>

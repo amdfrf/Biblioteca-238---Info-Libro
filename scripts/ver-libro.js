@@ -9,8 +9,9 @@ function guardarLibro() {
     if (localStorage.getItem("mail") == null) {
         window.location = "login.html"; // solo deja agregar libro al cajon si hay usuario logueado
     } else {
+        let textoAlerta = document.getElementById('textoAlerta');
         if (noCart[libro]) {
-            alert("El libro ya está en el cajón.");
+            textoAlerta.innerHTML = 'El libro ya estaba en el cajón'
         } else {
             noCart[libro] = [
                 {
@@ -21,8 +22,10 @@ function guardarLibro() {
                 }
             ]
             localStorage.setItem("noCart", JSON.stringify(noCart));
-            alert("Libro agregado al cajón.");
+            textoAlerta.innerHTML = 'Libro agregado al cajón.';
         }
+        document.getElementById('addToCart').disabled = true
+        document.getElementById('alertaCarrito').classList.add('show');
     }
 };
 
