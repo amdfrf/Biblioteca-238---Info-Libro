@@ -18,6 +18,17 @@
 </head>
 
 <body>
+  <div id="alertaError" class="centrar w-75 alert alert-warning alert-dismissible fade" role="alert">
+    <h6>ERROR EN LA RESERVA</h6>
+    <ul id="textoErrorReserva">
+
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div id="alertaSuccess" class="centrar text-center alert alert-primary w-75 alert-dismissible fade show" role="alert">
+    <p class="fs-2">Reserva realizada con éxito</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
   <main>
     <div class="container rounded beige my-5 p-3">
       <div class="row mb-4">
@@ -39,6 +50,8 @@
       <div id="listaLibros">
 
       </div>
+
+      
     </div>
 
     <div class="modal fade" id="modalSolicitarLibros" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -49,24 +62,24 @@
           </div>
           <div class="modal-body">
             <form class="needs-validation" id="formPrestamo" novalidate>
-              <div>
+              <div class="m-2">
                 <label class="form-label" for="departamento">Departamento:</label><br>
                 <input class="form-control" type="text" id="departamento" name="departamento" required>
                 <div class="invalid-feedback">Ingrese departamento</div>
               </div>
-              <div>
+              <div class="m-2">
                 <label class="form-label" for="ciudad">Ciudad:</label>
                 <input class="form-control" type="text" id="ciudad" name="ciudad" required>
                 <div class="invalid-feedback">Ingrese ciudad</div>
               </div>
 
-              <div>
+              <div class="m-2">
                 <label class="form-label" for="calle">Calle:</label>
                 <input class="form-control" type="text" id="calle" name="calle" required>
                 <div class="invalid-feedback">Ingrese calle</div>
               </div>
 
-              <div>
+              <div class="m-2">
                 <label class="form-label" for="numero">Numero:</label>
                 <input class="form-control" type="text" id="numero" name="numero" required>
                 <div class="invalid-feedback">Ingrese numero</div>
@@ -74,7 +87,7 @@
 
               
 
-              <button id="solicitarPrestamo" type="submit" class="btn btn-dark btn-lg w-100 mt-4">
+              <button id="solicitarPrestamo" type="submit" class="mt-5 btn btn-dark btn-lg w-100 mt-4">
                 Solicitar préstamo
               </button>
             </form>

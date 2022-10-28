@@ -1,5 +1,10 @@
 let fecha;
-let formPrestamo = document.getElementById('formPrestamo')
+let formPrestamo = document.getElementById('formPrestamo');
+let fechaDev = 0;
+let textoErrorReserva = document.getElementById('textoErrorReserva');
+let dias = 0;
+let cantLibros = 0;
+
 // Funcion que calcula la fecha de devolucion del libro:
 function fechaDevolucion(fecha, dias) {
     let fechaDev = new Date();
@@ -27,10 +32,9 @@ function mostrarListaLibros() {
     </div>
     `;
     
-    let dias = 0;
     
     for (let libro in noCart) {
-        
+        cantLibros++;
         dias += (parseInt(noCart[libro][0].paginas)) / 50
         
         
@@ -64,10 +68,8 @@ function mostrarListaLibros() {
         </div>
         `;
     }
-    if(dias > 15)
-        dias = 15
     let fecha = new Date();
-    let fechaDev = fechaDevolucion(fecha,dias);
+    fechaDev = fechaDevolucion(fecha,dias);
     let devoluciones = document.getElementsByClassName('fechaDevolucion');
     for(let i = 0;i < devoluciones.length;i++){
         devoluciones[i].innerHTML = `${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}`;
@@ -84,6 +86,7 @@ function eliminarLibro(libroID) {
     if (Object.entries(noCart).length === 0) {
         avisoListaVacia()
     }
+    window.location.href = window.location.href
 }
 
 // Funcion que avisa si el cajon de prestamos esta vacio:
@@ -110,13 +113,21 @@ formPrestamo.addEventListener("submit", function(e) {
         if (!formPrestamo.checkValidity()) {
             flag = false;
         }
+        else{
+            if(dias>15 || cantLibros > 3)
+                document.getElementById('alertaError').classList.add('show')
+            if(dias > 15)
+                textoErrorReserva.innerHTML += '<li>Se pasa de días</li>'
+            if(cantLibros > 3)
+                textoErrorReserva.innerHTML += '<li>Solo puedes reservar como máximo 3 libros</li>'
+        }
         formPrestamo.classList.add("was-validated");
 });
 
 let calleDireccion = document.getElementById('calle');
 let numeroDireccion = document.getElementById('numero');
 
-
+/*
 `
 <div class="modal fade" id="tiket" tabindex="-1" aria-labelledby="tiketPrestamo" aria-hidden="true">
 <div class="modal-dialog">
@@ -126,7 +137,7 @@ let numeroDireccion = document.getElementById('numero');
   </div>
   <div class="modal-body">
   <p>${localStorage.getItem("mail")}, tu préstamo ya fue aceptado.</p>
-  <p>Libros reservados:</P>
+  <p>Libros reservados:${noCart[libro][0].titulo}</P>
   <p>Fecha de devolución: ${fechaDev.getDate()}/${fechaDev.getMonth() + 1}/${fechaDev.getFullYear()}<p
   <p>Dirección de envío:${calleDireccion.value} ${numeroDireccion.value} </P>
   
@@ -137,4 +148,4 @@ let numeroDireccion = document.getElementById('numero');
 </div>
 </div>
 <
-`
+`*/
